@@ -16,6 +16,10 @@ const sendProduct = (req, res) => res.json ({products : res.locals.products});
 const sendrequests =(req, res) => res.json({request: res.locals.requests});
 const sendrequest =(req, res) => res.json({request: res.locals.request});
 const sendSuccess = (req, res) => res.json({ message: 'success' });
+<<<<<<< HEAD
+=======
+
+>>>>>>> 4f8405c5c34bd58f680a6e491db081345f84834a
 const sendreqProducts = (req, res) => res.json({reqProducts: res.locals.reqProducts});
 const sendreqProduct = (req, res) => res.json({reqProduct: res.locals.reqProduct});
 
