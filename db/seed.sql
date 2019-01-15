@@ -23,6 +23,7 @@ CREATE TABLE request
     id serial primary key,
     date VARCHAR(255),
     location varchar(255),
+    total int,
     client_id int not null,
     FOREIGN Key (client_id) REFERENCES clients
 );
@@ -51,11 +52,8 @@ VALUES
     (name, email, phone )
 VALUES
 ('Hanan', 'hanan111@hotmail.com', '0553299864');
+
+INSERT INTO request 
+(date, location, total, client_id) VALUES
+('23/3/2019', 'KSA', '400', '1');
    
-
-
-
-
-
-
-
