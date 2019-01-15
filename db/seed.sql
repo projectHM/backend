@@ -56,4 +56,3 @@ VALUES
 INSERT INTO request 
 (date, location, total, client_id) VALUES
 ('23/3/2019', 'KSA', '400', '1');
-   
