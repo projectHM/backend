@@ -16,16 +16,19 @@ const sendProduct = (req, res) => res.json ({products : res.locals.products});
 const sendrequests =(req, res) => res.json({request: res.locals.requests});
 const sendrequest =(req, res) => res.json({request: res.locals.request});
 const sendSuccess = (req, res) => res.json({ message: 'success' });
+<<<<<<< HEAD
+=======
 
+>>>>>>> 4f8405c5c34bd58f680a6e491db081345f84834a
 const sendreqProducts = (req, res) => res.json({reqProducts: res.locals.reqProducts});
 const sendreqProduct = (req, res) => res.json({reqProduct: res.locals.reqProduct});
 
-router.get('/clients', clients.getAll, sendClient);
+router.get('/clients', clients.getByemail, sendClient);
 router.post('/clients',  clients.create, sendClients);
 router.put('/clients/:id', clients.update, sendClient);
 
-router.get('/products', products.getAll, sendProducts);
-router.post('/products', products.create, sendProduct);
+router.get('/products', products.getAll, sendProduct);
+router.post('/products', products.create, sendProducts);
 
 
 // router.get('/requests', requests.getByuser, sendrequests); test

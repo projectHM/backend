@@ -1,8 +1,8 @@
 const db = require('../db/config');
 const clients = {};
 
-clients.getAll = (req, res, next) => {
-  db.manyOrNone('SELECT * FROM clients;') //by email
+clients.getByemail= (req, res, next) => {
+  db.manyOrNone('SELECT * from clients where email=$1;', [req.body.email]) //by email
     .then((data) => {
       res.locals.clients = data;
       next();
