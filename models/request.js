@@ -1,8 +1,8 @@
 const db = require('../db/config');
 const request = {};
 
-request.getAll = (req, res, next) => {
-  db.manyOrNone('SELECT * FROM request;')
+request.getByuser = (req, res, next) => {
+  db.manyOrNone('SELECT * FROM request where client_id=$1;',[req.params.id])
     .then((data) => {
       res.locals.requests = data;
       next();
@@ -14,8 +14,8 @@ request.getAll = (req, res, next) => {
 }
 
 request.create = (req, res, next) => {
-  db.one('INSERT INTO request (name,location, client_id ) VALUES($1, $2, $3) RETURNING *;',
-    [req.body.name, req.body.location, req.body.client_id])
+  db.one('INSERT INTO request (date,location, total,client_id ) VALUES($1, $2, $3, $4) RETURNING *;',
+    [req.body.date, req.body.location, req.body.total, req.body.client_id])
     .then((data) => {
       res.locals.request = data;
       next();
@@ -27,8 +27,8 @@ request.create = (req, res, next) => {
 }
 
 request.update = (req, res, next) => {
-  db.one('UPDATE request SET date=$1, client_id=$2 location=$3 WHERE id=$4 RETURNING *;',
-  [req.body.date, req.body.client_id, req.body.location, req.params.id])
+  db.one('UPDATE request SET date=$1, location=$2, total=$3 client_id=$4 WHERE id=$5 RETURNING *;',
+  [req.body.date,  req.body.location, req.body.total, req.body.client_id, req.params.id])
     .then((data) => {
       res.locals.request = data;
       next();

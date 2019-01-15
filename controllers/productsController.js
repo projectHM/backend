@@ -2,29 +2,39 @@
 const express = require('express');
 const router = express.Router();
 
-const product = require('../models/product');
+
+const products = require('../models/product');
 const clients = require('../models/clients');
-const request = require('../models/request');
+const requests = require('../models/request');
 const reqProduct = require('../models/reqProduct');
 
 
-
-const sendProducts = (req, res) => res.json({products : res.locals.products, clinets: res.locals.clients ,  request: res.locals.requests});
-const sendProduct = (req, res) => res.json({products : res.locals.products, clinets: res.locals.clients ,  request: res.locals.request});
+const sendClients =  (req, res) => res.json ({ clinets: res.locals.clients});
+const sendClient =  (req, res) => res.json ({ clinets: res.locals.clients});
+const sendProducts = (req, res) => res.json ({products : res.locals.products});
+const sendProduct = (req, res) => res.json ({products : res.locals.products});
+const sendrequests =(req, res) => res.json({request: res.locals.requests});
+const sendrequest =(req, res) => res.json({request: res.locals.requests});
 const sendSuccess = (req, res) => res.json({ message: 'success' });
+// const sendreqProducts = (req, res) => res.json({reqProducts: res.locals.reqProducts});
+// const sendreqProduct = (req, res) => res.json({reqProduct: res.locals.reqProducts});
 
-router.get('/products', product.getAll, sendProducts );
+router.get('/clients', clients.getAll, sendClient);
+router.post('/clients',  clients.create, sendClients);
+router.put('/clients/:id', clients.update, sendClient);
 
-// router.post('/', product.create, clients.create, sendProduct);
-// router.get('/track',  clients.find, request.find,  sendProducts ); // find a clinet by email then find a request by client id 
-
-
-router.put('/', clients.update, request.update, sendProduct);
-router.delete('/',  request.delete, sendSuccess); /// futuer work becuase I'm lazy 
+router.get('/products', products.getAll, sendProducts);
+router.post('/products', products.create, sendProduct);
 
 
-// move this to request controller 
-// router.post('/new',  clients.create, reproductReqquest.create, productReq.create,  sendProduct);
-// router.get('/new', clients.create ,sendProducts ); // old new 
+// router.get('/requests', requests.getByuser, sendrequests); test
+router.get('/requests', requests.getByuser, sendrequests);
+router.post('/requests', requests.create, sendrequest);
+router.put('/requests/:id', requests.update, sendrequest);
+router.delete('/requests/:id', requests.delete, sendSuccess);
+
+// router.get('/reqProduct', reqProduct.getByReqId, sendreqProducts);
+// router.post('/reqProduct', reqProduct.create, sendreqProduct);
+// router.delete('/reqProduct/:id', reqProduct.delete, sendSuccess);
 
 module.exports = router;
