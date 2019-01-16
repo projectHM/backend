@@ -6,7 +6,7 @@ const config = {
   host: 'localhost',
   port: 5432,
   database: 'cloud',
-  user: '', // your username here!!
+  user: 'hnanalshmry', // your username here!!
 
 }
 

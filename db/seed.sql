@@ -43,10 +43,10 @@ INSERT INTO products
 VALUES
     ('CPU','i5','none',173),
     ('CPU','i7','none',424),
-    ('AMD','RAM','1GB',35),
-    ('WD','disk','1TB',49.99),
-    ('Cisco','switch','none',34.9),
-    ('Cisco','router','none',89.99);
+    ('RAM','AMD','1GB',35),
+    ('disk','WD','1TB',49.99),
+    ('switch','Cisco','none',34.9),
+    ('router','Cisco','none',89.99);
 
     INSERT INTO clients
     (name, email, phone )
