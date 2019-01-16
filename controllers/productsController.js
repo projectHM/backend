@@ -20,12 +20,12 @@ const sendSuccess = (req, res) => res.json({ message: 'success' });
 const sendreqProducts = (req, res) => res.json({reqProducts: res.locals.reqProducts});
 const sendreqProduct = (req, res) => res.json({reqProduct: res.locals.reqProduct});
 
-router.get('/clients', clients.getAll, sendClient);
+router.get('/clients', clients.getByemail, sendClient);
 router.post('/clients',  clients.create, sendClients);
 router.put('/clients/:id', clients.update, sendClient);
 
-router.get('/products', products.getAll, sendProducts);
-router.post('/products', products.create, sendProduct);
+router.get('/products', products.getAll, sendProduct);
+router.post('/products', products.create, sendProducts);
 
 
 // router.get('/requests', requests.getByuser, sendrequests); test
