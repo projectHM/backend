@@ -6,8 +6,8 @@ const config = {
   host: 'localhost',
   port: 5432,
   database: 'cloud',
-  user: '', // your username here!!
-
+  user: 'postgres', // your username here!!
+  password: '200100'
 }
 
 const connection = pgInstance(config);
