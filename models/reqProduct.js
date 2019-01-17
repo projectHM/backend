@@ -4,7 +4,7 @@ const reqProduct = {};
 
 //get
 reqProduct.getByReqId = (req, res, next) => {
-  db.manyOrNone("SELECT * FROM reqProduct WHERE request_id=$1;",[req.body.request_id])
+  db.manyOrNone("SELECT * FROM reqProduct WHERE request_id=$1;",[req.query.request_id])
     .then(data => {
       res.locals.reqProducts = data;
       next();
