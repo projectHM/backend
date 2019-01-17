@@ -14,9 +14,9 @@ CREATE TABLE products
 CREATE TABLE clients
 (
     id serial primary key,
-    name varchar(255),
-    email varchar(255),
-    phone varchar(255)  
+    name varchar(255) not null,
+    email varchar(255) not null,
+    phone varchar(255) not null 
 );
 CREATE TABLE request
 (

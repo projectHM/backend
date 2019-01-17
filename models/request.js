@@ -2,7 +2,7 @@ const db = require('../db/config');
 const request = {};
 
 request.getByuser = (req, res, next) => {
-  db.manyOrNone('SELECT * FROM request where client_id=$1;',[req.body.client_id])
+  db.manyOrNone('SELECT * FROM request where client_id=$1;',[req.query.client_id])
     .then((data) => {
       res.locals.requests = data;
       next();
