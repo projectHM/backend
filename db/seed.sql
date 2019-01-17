@@ -37,6 +37,15 @@ CREATE TABLE reqProduct
     price int
 );
 
+CREATE TABLE category(
+id serial primary key,
+storage int,
+month int,
+price FLOAT
+);
+
+INSERT INTO category(storage,month,price) VALUES (1, 1,0.026);
+
 
 INSERT INTO products
     (name, type,unit,cost)
