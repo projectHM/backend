@@ -25,15 +25,16 @@ CREATE TABLE request
     location varchar(255),
     total int,
     client_id int not null,
+    client_email varchar(255) not null,
     FOREIGN Key (client_id) REFERENCES clients
 );
 CREATE TABLE reqProduct
 (
     id serial primary key,
     product_id int not null,
-    FOREIGN KEY (product_id) REFERENCES products,
+    FOREIGN KEY (product_id) REFERENCES products on delete cascade on update cascade,
     request_Id int not null,
-    FOREIGN Key (request_Id) REFERENCES request,
+    FOREIGN Key (request_Id) REFERENCES request on delete cascade on update cascade,
     price int
 );
 
@@ -63,5 +64,5 @@ VALUES
 ('Hanan', 'hanan111@hotmail.com', '0553299864');
 
 INSERT INTO request 
-(date, location, total, client_id) VALUES
-('23/3/2019', 'KSA', '400', '1');
+(date, location, total, client_id, client_email) VALUES
+('23/3/2019', 'KSA', '400', '1', 'hanan111@hotmail.com');
