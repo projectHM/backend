@@ -2,7 +2,7 @@ const db = require('../db/config');
 const clients = {};
 
 clients.getByemail= (req, res, next) => {
-  db.one('SELECT * from clients where email=$1;', [req.query.email]) //by email
+  db.manyOrNone('SELECT * from clients where email=$1 ORDER BY id;', [req.query.email]) //by email
     .then((data) => {
       console.log(data);
       res.locals.clients = data;

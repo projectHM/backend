@@ -7,6 +7,7 @@ const products = require('../models/product');
 const clients = require('../models/clients');
 const requests = require('../models/request');
 const reqProduct = require('../models/reqProduct');
+const category =  require('../models/category');
 
 
 const sendClients =  (req, res) => res.json ({ clinets: res.locals.clients});
@@ -18,6 +19,10 @@ const sendrequest =(req, res) => res.json({request: res.locals.request});
 const sendSuccess = (req, res) => res.json({ message: 'success' });
 const sendreqProducts = (req, res) => res.json({reqProducts: res.locals.reqProducts});
 const sendreqProduct = (req, res) => res.json({reqProduct: res.locals.reqProduct});
+
+const sendcategory = (req, res) => res.json({category: res.locals.category});
+
+router.get('/category', category.getAll, sendcategory);
 
 router.get('/clients', clients.getByemail, sendClient);
 router.post('/clients',  clients.create, sendClients);

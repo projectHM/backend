@@ -3,9 +3,11 @@ const port = 3000;
 const logger = require('morgan');
 const bodyParser = require('body-parser');
 const methodOverride = require('method-override');
+const cors = require("cors");
 
 
 const app = express();
+app.use(cors());
 
 app.use(logger('dev'));
 
