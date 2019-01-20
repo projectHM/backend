@@ -23,7 +23,7 @@ CREATE TABLE request
     id serial primary key,
     date VARCHAR(255),
     location varchar(255),
-    total int,
+    total FLOAT,
     client_id int not null,
     client_email varchar(255) not null,
     FOREIGN Key (client_id) REFERENCES clients
@@ -35,7 +35,7 @@ CREATE TABLE reqProduct
     FOREIGN KEY (product_id) REFERENCES products on delete cascade on update cascade,
     request_Id int not null,
     FOREIGN Key (request_Id) REFERENCES request on delete cascade on update cascade,
-    price int
+    price FLOAT
 );
 
 CREATE TABLE category(

@@ -14,7 +14,7 @@ request.getByuser = (req, res, next) => {
 }
 
 request.create = (req, res, next) => {
-  db.one('INSERT INTO request (date,location, total, client_id, client_email ) VALUES($1, $2, $3, $4,$5) RETURNING *;',
+  db.one('INSERT INTO request (date,location, total, client_id, client_email ) VALUES($1, $2, $3, $4, $5) RETURNING *;',
     [req.body.date, req.body.location, req.body.total,req.body.client_id, req.body.client_email])
     .then((data) => {
       res.locals.request = data;
